@@ -2,118 +2,146 @@
 // MAKASI WEBSITE
 // ============================================================
 
+document.addEventListener("DOMContentLoaded", () => {
 
-// ------------------------------------------------------------
-// NAVBAR
-// ------------------------------------------------------------
+    // ========================================================
+    // NAVBAR AU SCROLL
+    // ========================================================
 
-const navbar =
-    document.querySelector(".navbar");
+    const navbar =
+        document.querySelector(".navbar");
+
+    function updateNavbar() {
+
+        if (!navbar) {
+            return;
+        }
+
+        if (window.scrollY > 25) {
+
+            navbar.classList.add(
+                "scrolled"
+            );
+
+        } else {
+
+            navbar.classList.remove(
+                "scrolled"
+            );
+
+        }
+
+    }
+
+    updateNavbar();
+
+    window.addEventListener(
+        "scroll",
+        updateNavbar,
+        {
+            passive: true
+        }
+    );
 
 
-function updateNavbar() {
+    // ========================================================
+    // ANIMATIONS AU SCROLL
+    // ========================================================
 
-    if (window.scrollY > 25) {
+    const revealElements =
+        document.querySelectorAll(
+            ".reveal"
+        );
 
-        navbar.classList.add(
-            "scrolled"
+    if ("IntersectionObserver" in window) {
+
+        const observer =
+            new IntersectionObserver(
+
+                entries => {
+
+                    entries.forEach(
+                        entry => {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target.classList.add(
+                                    "visible"
+                                );
+
+                                observer.unobserve(
+                                    entry.target
+                                );
+
+                            }
+
+                        }
+                    );
+
+                },
+
+                {
+                    threshold: 0.10,
+                    rootMargin:
+                        "0px 0px -30px 0px"
+                }
+
+            );
+
+        revealElements.forEach(
+            element => {
+
+                observer.observe(
+                    element
+                );
+
+            }
         );
 
     } else {
 
-        navbar.classList.remove(
-            "scrolled"
+        revealElements.forEach(
+            element => {
+
+                element.classList.add(
+                    "visible"
+                );
+
+            }
         );
 
     }
 
-}
 
+    // ========================================================
+    // FAQ
+    // ========================================================
 
-window.addEventListener(
-    "scroll",
-    updateNavbar
-);
-
-
-updateNavbar();
-
-
-// ------------------------------------------------------------
-// REVEAL
-// ------------------------------------------------------------
-
-const revealElements =
-    document.querySelectorAll(
-        ".reveal"
-    );
-
-
-const revealObserver =
-    new IntersectionObserver(
-
-        entries => {
-
-            entries.forEach(
-                entry => {
-
-                    if (
-                        entry.isIntersecting
-                    ) {
-
-                        entry.target.classList.add(
-                            "visible"
-                        );
-
-                        revealObserver.unobserve(
-                            entry.target
-                        );
-
-                    }
-
-                }
-            );
-
-        },
-
-        {
-            threshold: 0.12
-        }
-
-    );
-
-
-revealElements.forEach(
-    element => {
-
-        revealObserver.observe(
-            element
+    const faqButtons =
+        document.querySelectorAll(
+            ".faq-question"
         );
 
-    }
-);
-
-
-// ------------------------------------------------------------
-// FAQ
-// ------------------------------------------------------------
-
-document
-    .querySelectorAll(
-        ".faq-question"
-    )
-    .forEach(
+    faqButtons.forEach(
         button => {
 
             button.addEventListener(
                 "click",
                 () => {
 
-                    const item =
-                        button.parentElement;
+                    const currentItem =
+                        button.closest(
+                            ".faq-item"
+                        );
 
-                    const alreadyOpen =
-                        item.classList.contains(
+                    if (!currentItem) {
+                        return;
+                    }
+
+                    const wasOpen =
+                        currentItem.classList.contains(
                             "open"
                         );
 
@@ -122,18 +150,18 @@ document
                             ".faq-item"
                         )
                         .forEach(
-                            other => {
+                            item => {
 
-                                other.classList.remove(
+                                item.classList.remove(
                                     "open"
                                 );
 
                             }
                         );
 
-                    if (!alreadyOpen) {
+                    if (!wasOpen) {
 
-                        item.classList.add(
+                        currentItem.classList.add(
                             "open"
                         );
 
@@ -146,49 +174,215 @@ document
     );
 
 
-// ------------------------------------------------------------
-// MOBILE MENU
-// ------------------------------------------------------------
+    // ========================================================
+    // MENU MOBILE
+    // ========================================================
 
-const mobileButton =
-    document.getElementById(
-        "mobileMenu"
-    );
-
-
-const navigation =
-    document.querySelector(
-        ".nav-links"
-    );
-
-
-mobileButton.addEventListener(
-    "click",
-    () => {
-
-        navigation.classList.toggle(
-            "open"
+    const mobileButton =
+        document.getElementById(
+            "mobileMenu"
         );
 
-    }
-);
+    const navigation =
+        document.getElementById(
+            "navLinks"
+        );
 
+    if (
+        mobileButton
+        && navigation
+    ) {
 
-navigation
-    .querySelectorAll("a")
-    .forEach(
-        link => {
+        // ----------------------------------------------------
+        // OUVRIR / FERMER
+        // ----------------------------------------------------
 
-            link.addEventListener(
-                "click",
-                () => {
+        mobileButton.addEventListener(
+            "click",
+            event => {
 
-                    navigation.classList.remove(
+                event.stopPropagation();
+
+                const opened =
+                    navigation.classList.toggle(
                         "open"
+                    );
+
+                mobileButton.classList.toggle(
+                    "active",
+                    opened
+                );
+
+                mobileButton.setAttribute(
+                    "aria-expanded",
+                    opened
+                        ? "true"
+                        : "false"
+                );
+
+            }
+        );
+
+
+        // ----------------------------------------------------
+        // FERMER APRÈS CLIC SUR UN LIEN
+        // ----------------------------------------------------
+
+        navigation
+            .querySelectorAll("a")
+            .forEach(
+                link => {
+
+                    link.addEventListener(
+                        "click",
+                        () => {
+
+                            closeMobileMenu();
+
+                        }
                     );
 
                 }
             );
 
+
+        // ----------------------------------------------------
+        // CLIC EN DEHORS
+        // ----------------------------------------------------
+
+        document.addEventListener(
+            "click",
+            event => {
+
+                if (
+                    navigation.classList.contains(
+                        "open"
+                    )
+                    &&
+                    !navigation.contains(
+                        event.target
+                    )
+                    &&
+                    !mobileButton.contains(
+                        event.target
+                    )
+                ) {
+
+                    closeMobileMenu();
+
+                }
+
+            }
+        );
+
+
+        // ----------------------------------------------------
+        // ESC
+        // ----------------------------------------------------
+
+        document.addEventListener(
+            "keydown",
+            event => {
+
+                if (
+                    event.key === "Escape"
+                ) {
+
+                    closeMobileMenu();
+
+                }
+
+            }
+        );
+
+
+        // ----------------------------------------------------
+        // RETOUR AU DESKTOP
+        // ----------------------------------------------------
+
+        window.addEventListener(
+            "resize",
+            () => {
+
+                if (
+                    window.innerWidth > 900
+                ) {
+
+                    closeMobileMenu();
+
+                }
+
+            }
+        );
+
+
+        function closeMobileMenu() {
+
+            navigation.classList.remove(
+                "open"
+            );
+
+            mobileButton.classList.remove(
+                "active"
+            );
+
+            mobileButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
         }
-    );
+
+    }
+
+
+    // ========================================================
+    // LIENS INTERNES
+    // ========================================================
+
+    document
+        .querySelectorAll(
+            'a[href^="#"]'
+        )
+        .forEach(
+            anchor => {
+
+                anchor.addEventListener(
+                    "click",
+                    event => {
+
+                        const href =
+                            anchor.getAttribute(
+                                "href"
+                            );
+
+                        if (
+                            !href
+                            || href === "#"
+                        ) {
+                            return;
+                        }
+
+                        const target =
+                            document.querySelector(
+                                href
+                            );
+
+                        if (!target) {
+                            return;
+                        }
+
+                        event.preventDefault();
+
+                        target.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start"
+                        });
+
+                    }
+                );
+
+            }
+        );
+
+});

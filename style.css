@@ -2414,3 +2414,59 @@ footer {
     }
 
 }
+/* ============================================================
+   MOBILE MENU BUTTON
+============================================================ */
+
+.mobile-menu {
+    width: 43px;
+    height: 43px;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #ded6f5;
+
+    border-radius: 11px;
+
+    background: #ffffff;
+
+    color: #3600c8;
+
+    cursor: pointer;
+
+    line-height: 1;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease,
+        border-color .2s ease;
+}
+
+
+.mobile-menu:hover {
+    background: #f3efff;
+
+    border-color: #cbbcf5;
+}
+
+
+.mobile-menu.active {
+    background: #3600c8;
+
+    border-color: #3600c8;
+
+    color: #ffffff;
+
+    transform: rotate(90deg);
+}
+
+
+@media (max-width: 900px) {
+
+    .mobile-menu {
+        display: flex;
+    }
+
+}
