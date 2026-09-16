@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Galerie PSD gratuite — Téléchargez les créations Photoshop de ALPHONSE DESIGN."
+    >
+
+    <title>
+        Galerie PSD — MAKASI
+    </title>
+
+
+    <link
+        rel="icon"
+        href="assets/favicon.ico"
+        sizes="any"
+    >
+
+    <link
+        rel="shortcut icon"
+        href="assets/favicon.ico"
+        type="image/x-icon"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<header class="navbar">
+
+    <div class="container nav">
+
+        <a
+            href="index.html"
+            class="brand"
+        >
+
+            <div class="brand-icon">
+                M
+            </div>
+
+            <div>
+
+                <strong>
+                    MAKASI
+                </strong>
+
+                <small>
+                    ALPHONSE DESIGN
+                </small>
+
+            </div>
+
+        </a>
+
+
+        <nav id="navLinks">
+
+            <a href="index.html">
+                Accueil
+            </a>
+
+            <a href="index.html#features">
+                Fonctionnalités
+            </a>
+
+            <a
+                href="galerie.html"
+                class="active-link"
+            >
+                Galerie PSD
+            </a>
+
+            <a href="index.html#pricing">
+                Prix
+            </a>
+
+            <a href="index.html#faq">
+                FAQ
+            </a>
+
+        </nav>
+
+
+        <a
+            href="index.html#download"
+            class="nav-download"
+        >
+            Télécharger MAKASI
+        </a>
+
+
+        <button
+            id="mobileMenu"
+            class="mobile-menu"
+            aria-label="Menu"
+            aria-expanded="false"
+        >
+            ☰
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<main>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="gallery-hero">
+
+    <div class="orb orb1"></div>
+
+    <div class="orb orb2"></div>
+
+
+    <div
+        class="container gallery-hero-content reveal"
+    >
+
+        <span class="badge">
+            ALPHONSE DESIGN • PSD
+        </span>
+
+
+        <h1>
+
+            Galerie
+
+            <span>
+                PSD.
+            </span>
+
+        </h1>
+
+
+        <p>
+            Découvrez mes créations Photoshop et téléchargez
+            gratuitement les fichiers PSD pour vos projets.
+        </p>
+
+
+        <div class="gallery-stats">
+
+
+            <div>
+
+                <strong id="psdCount">
+                    0
+                </strong>
+
+                <span id="psdCountLabel">
+                    PSD disponible
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    PSD
+                </strong>
+
+                <span>
+                    Fichiers Photoshop
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    Gratuit
+                </strong>
+
+                <span>
+                    Téléchargement
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     GALERIE
+========================================================= -->
+
+<section class="section gallery-section">
+
+    <div class="container">
+
+
+        <!-- =================================================
+             TITRE
+        ================================================== -->
+
+        <div class="gallery-heading reveal">
+
+            <div>
+
+                <span class="gallery-label">
+                    DERNIÈRES CRÉATIONS
+                </span>
+
+
+                <h2>
+                    Téléchargez mes PSD
+                </h2>
+
+
+                <p>
+                    Découvrez, partagez et téléchargez
+                    mes créations Photoshop.
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 RECHERCHE
+            ================================================== -->
+
+            <div class="gallery-search">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+
+                    <circle
+                        cx="11"
+                        cy="11"
+                        r="7"
+                    ></circle>
+
+                    <path
+                        d="m20 20-4-4"
+                    ></path>
+
+                </svg>
+
+
+                <input
+                    type="search"
+                    id="psdSearch"
+                    placeholder="Rechercher un PSD..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             GRILLE
+
+             IMPORTANT :
+             Les cartes sont maintenant créées automatiquement
+             par gallery.js.
+
+             Tu n'ajoutes plus aucun PSD ici.
+        ================================================== -->
+
+        <div
+            class="psd-grid"
+            id="psdGrid"
+        ></div>
+
+
+
+        <!-- =================================================
+             AUCUN RÉSULTAT
+        ================================================== -->
+
+        <div
+            class="gallery-empty"
+            id="galleryEmpty"
+        >
+
+            <strong>
+                Aucun PSD trouvé
+            </strong>
+
+            <p>
+                Essayez un autre mot dans la recherche.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     MAKASI PROMOTION
+========================================================= -->
+
+<section class="gallery-makasi">
+
+    <div class="container">
+
+        <div class="gallery-makasi-box reveal">
+
+
+            <div>
+
+                <span>
+                    ORGANISEZ VOS PSD
+                </span>
+
+
+                <h2>
+                    Vous avez beaucoup de PSD ?
+                </h2>
+
+
+                <p>
+                    MAKASI transforme vos dossiers Photoshop
+                    en une bibliothèque visuelle moderne.
+                </p>
+
+            </div>
+
+
+
+            <div class="gallery-makasi-actions">
+
+                <a
+                    href="index.html#download"
+                    class="button white"
+                >
+                    Télécharger MAKASI
+                </a>
+
+
+                <a
+                    href="index.html#pricing"
+                    class="button gallery-outline"
+                >
+                    Acheter — 8 USD
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="container footer-grid">
+
+
+        <div>
+
+            <strong class="footer-logo">
+                MAKASI
+            </strong>
+
+
+            <p>
+                Bibliothèque visuelle de fichiers PSD
+                pour designers.
+            </p>
+
+
+            <p>
+                Un produit ALPHONSE DESIGN.
+            </p>
+
+        </div>
+
+
+
+        <div>
+
+            <strong>
+                Produit
+            </strong>
+
+
+            <a href="index.html#features">
+                Fonctionnalités
+            </a>
+
+
+            <a href="galerie.html">
+                Galerie PSD
+            </a>
+
+
+            <a href="index.html#pricing">
+                Prix
+            </a>
+
+
+            <a href="index.html#download">
+                Télécharger
+            </a>
+
+        </div>
+
+
+
+        <div>
+
+            <strong>
+                Support
+            </strong>
+
+
+            <a href="mailto:rnzogero@gmail.com">
+                rnzogero@gmail.com
+            </a>
+
+
+            <a
+                href="https://wa.me/243971404824"
+                target="_blank"
+                rel="noopener"
+            >
+                +243 971 404 824
+            </a>
+
+
+            <span>
+                RD Congo
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="container copyright">
+
+        <span>
+            © 2026 ALPHONSE DESIGN. Tous droits réservés.
+        </span>
+
+        <span>
+            MAKASI 1.0
+        </span>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     WHATSAPP FLOTTANT
+========================================================= -->
+
+<a
+    href="https://wa.me/243971404824?text=Bonjour%2C%20je%20voudrais%20des%20informations%20sur%20MAKASI"
+    target="_blank"
+    rel="noopener"
+    class="whatsapp"
+    aria-label="Contacter MAKASI sur WhatsApp"
+>
+
+    <svg viewBox="0 0 24 24">
+
+        <path
+            d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.5 0 .2 5.3.2 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.4-1.7a12 12 0 0 0 5.7 1.4h.1c6.5 0 11.8-5.3 11.8-11.9 0-3.2-1.2-6.1-3.5-8.3ZM12.1 21.7a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.8 1 1-3.7-.2-.4a9.8 9.8 0 1 1 8.4 4.7Zm5.4-7.3c-.3-.1-1.7-.8-2-1-.3-.1-.5-.1-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-1.7-.8-2.8-1.5-3.9-3.4-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.6L8.8 6.6c-.2-.5-.5-.4-.7-.4h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.3 3.4 1.4 3.6c.2.2 2.5 3.8 6 5.3.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 1.7-.7 1.9-1.3.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3Z"
+        />
+
+    </svg>
+
+</a>
+
+
+
+<!-- =========================================================
+     PARTAGE ORDINATEUR
+========================================================= -->
+
+<div
+    class="share-overlay"
+    id="shareOverlay"
+    aria-hidden="true"
+>
+
+    <div
+        class="share-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="shareModalTitle"
+    >
+
+
+        <div class="share-modal-header">
+
+            <div>
+
+                <span>
+                    PARTAGER
+                </span>
+
+                <h3 id="shareModalTitle">
+                    Partager ce PSD
+                </h3>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="share-close"
+                id="shareClose"
+                aria-label="Fermer"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+
+        <!-- =================================================
+             APERÇU
+        ================================================== -->
+
+        <div class="share-preview">
+
+            <img
+                id="sharePreviewImage"
+                src=""
+                alt=""
+            >
+
+            <div>
+
+                <strong id="sharePreviewTitle">
+                    PSD
+                </strong>
+
+                <span>
+                    ALPHONSE DESIGN
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             RÉSEAUX
+        ================================================== -->
+
+        <div class="share-networks">
+
+
+            <a
+                href="#"
+                id="shareWhatsapp"
+                class="share-network share-whatsapp"
+                target="_blank"
+                rel="noopener"
+            >
+
+                <strong>W</strong>
+
+                <span>
+                    WhatsApp
+                </span>
+
+            </a>
+
+
+
+            <a
+                href="#"
+                id="shareFacebook"
+                class="share-network share-facebook"
+                target="_blank"
+                rel="noopener"
+            >
+
+                <strong>f</strong>
+
+                <span>
+                    Facebook
+                </span>
+
+            </a>
+
+
+
+            <a
+                href="#"
+                id="shareTelegram"
+                class="share-network share-telegram"
+                target="_blank"
+                rel="noopener"
+            >
+
+                <strong>➤</strong>
+
+                <span>
+                    Telegram
+                </span>
+
+            </a>
+
+
+
+            <a
+                href="#"
+                id="shareX"
+                class="share-network share-x"
+                target="_blank"
+                rel="noopener"
+            >
+
+                <strong>𝕏</strong>
+
+                <span>
+                    X
+                </span>
+
+            </a>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             COPIER LE LIEN
+        ================================================== -->
+
+        <div class="share-copy">
+
+            <input
+                type="text"
+                id="shareUrlInput"
+                readonly
+            >
+
+            <button
+                type="button"
+                id="shareCopyButton"
+            >
+                Copier
+            </button>
+
+        </div>
+
+
+        <p class="share-notice">
+            Le lien partagé ouvre la Galerie MAKASI.
+            Le fichier PSD n'est pas partagé directement.
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     SCRIPTS
+
+     ORDRE IMPORTANT :
+     1. script principal
+     2. données PSD
+     3. galerie
+========================================================= -->
+
+<script src="script.js"></script>
+
+<script src="psd-data.js"></script>
+
+<script src="gallery.js"></script>
+
+
+</body>
+
+</html>

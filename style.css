@@ -2470,3 +2470,1596 @@ footer {
     }
 
 }
+
+/* ============================================================
+   GALERIE PSD
+============================================================ */
+
+.gallery-hero {
+    position: relative;
+
+    padding:
+        165px 0 85px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 15% 30%,
+            #eee8ff 0,
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 70%,
+            #f0ebff 0,
+            transparent 26%
+        ),
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #faf9ff
+        );
+}
+
+
+.gallery-hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 800px;
+
+    text-align: center;
+
+    margin-inline: auto;
+}
+
+
+.gallery-hero h1 {
+    color: var(--text);
+
+    font-size:
+        clamp(
+            52px,
+            7vw,
+            82px
+        );
+
+    line-height: .95;
+
+    font-weight: 800;
+
+    letter-spacing: -4px;
+}
+
+
+.gallery-hero h1 span {
+    color: var(--purple);
+}
+
+
+.gallery-hero-content > p {
+    max-width: 600px;
+
+    margin:
+        24px auto 0;
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+/* ============================================================
+   GALERIE STATS
+============================================================ */
+
+.gallery-stats {
+    max-width: 650px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    margin:
+        38px auto 0;
+
+    overflow: hidden;
+
+    background:
+        rgba(255,255,255,.8);
+
+    border:
+        1px solid var(--border-purple);
+
+    border-radius: 17px;
+
+    box-shadow:
+        0 15px 45px
+        rgba(54,0,200,.07);
+}
+
+
+.gallery-stats > div {
+    padding: 20px 15px;
+}
+
+
+.gallery-stats > div +
+div {
+    border-left:
+        1px solid var(--border);
+}
+
+
+.gallery-stats strong {
+    display: block;
+
+    color: var(--purple);
+
+    font-size: 17px;
+
+    font-weight: 800;
+}
+
+
+.gallery-stats span {
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--muted);
+
+    font-size: 9px;
+}
+
+
+/* ============================================================
+   GALERIE SECTION
+============================================================ */
+
+.gallery-section {
+    background: var(--soft);
+}
+
+
+.gallery-heading {
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 40px;
+
+    margin-bottom: 38px;
+}
+
+
+.gallery-label {
+    display: inline-block;
+
+    margin-bottom: 10px;
+
+    color: var(--purple);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+
+.gallery-heading h2 {
+    color: var(--text);
+
+    font-size:
+        clamp(
+            31px,
+            4vw,
+            45px
+        );
+
+    line-height: 1.1;
+
+    letter-spacing: -1.8px;
+}
+
+
+.gallery-heading p {
+    margin-top: 10px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+/* ============================================================
+   RECHERCHE GALERIE
+============================================================ */
+
+.gallery-search {
+    width: 280px;
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    flex-shrink: 0;
+
+    padding: 0 15px;
+
+    background: #ffffff;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 12px;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.gallery-search:focus-within {
+    border-color:
+        #bdaaf4;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(54,0,200,.06);
+}
+
+
+.gallery-search svg {
+    width: 18px;
+    height: 18px;
+
+    flex-shrink: 0;
+
+    fill: none;
+
+    stroke: var(--muted);
+
+    stroke-width: 2;
+
+    stroke-linecap: round;
+}
+
+
+.gallery-search input {
+    width: 100%;
+
+    border: 0;
+
+    outline: 0;
+
+    background: transparent;
+
+    color: var(--text);
+
+    font-size: 11px;
+}
+
+
+.gallery-search input::placeholder {
+    color: #969dac;
+}
+
+
+/* ============================================================
+   GRILLE PSD
+============================================================ */
+
+.psd-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+
+/* ============================================================
+   CARTE PSD
+============================================================ */
+
+.psd-card {
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 19px;
+
+    box-shadow:
+        0 10px 35px
+        rgba(23,32,51,.04);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
+}
+
+
+.psd-card:hover {
+    transform:
+        translateY(-7px);
+
+    border-color:
+        #d1c4f5;
+
+    box-shadow:
+        0 25px 60px
+        rgba(54,0,200,.11);
+}
+
+
+/* ============================================================
+   MINIATURE
+============================================================ */
+
+.psd-thumbnail {
+    position: relative;
+
+    aspect-ratio:
+        4 / 3;
+
+    overflow: hidden;
+
+    background:
+        #eeeaf8;
+}
+
+
+.psd-thumbnail img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform .45s
+        cubic-bezier(
+            .2,
+            .8,
+            .2,
+            1
+        );
+}
+
+
+.psd-card:hover
+.psd-thumbnail img {
+    transform:
+        scale(1.045);
+}
+
+
+.psd-format {
+    position: absolute;
+
+    top: 13px;
+    right: 13px;
+
+    padding:
+        6px 9px;
+
+    color: #ffffff;
+
+    background:
+        rgba(32,0,115,.86);
+
+    backdrop-filter:
+        blur(10px);
+
+    border-radius: 7px;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: .8px;
+}
+
+
+/* ============================================================
+   CONTENU CARTE PSD
+============================================================ */
+
+.psd-card-content {
+    padding: 21px;
+}
+
+
+.psd-meta {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    color: var(--purple);
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: .7px;
+}
+
+
+.psd-card-content h3 {
+    margin-top: 12px;
+
+    color: var(--text);
+
+    font-size: 18px;
+
+    font-weight: 750;
+
+    line-height: 1.25;
+}
+
+
+.psd-card-content > p {
+    min-height: 39px;
+
+    margin-top: 8px;
+
+    color: var(--muted);
+
+    font-size: 10.5px;
+
+    line-height: 1.65;
+}
+
+
+/* ============================================================
+   BOUTON PSD
+============================================================ */
+
+.psd-download {
+    width: 100%;
+
+    min-height: 45px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 19px;
+
+    color: #ffffff;
+
+    background:
+        var(--purple);
+
+    border-radius: 11px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 9px 23px
+        rgba(54,0,200,.15);
+
+    transition:
+        background .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.psd-download:hover {
+    background:
+        #2b00a7;
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 13px 30px
+        rgba(54,0,200,.23);
+}
+
+
+.psd-download svg {
+    width: 17px;
+    height: 17px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 2;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+}
+
+
+/* ============================================================
+   AUCUN RESULTAT
+============================================================ */
+
+.gallery-empty {
+    display: none;
+
+    padding:
+        70px 20px;
+
+    text-align: center;
+
+    color: var(--muted);
+}
+
+
+.gallery-empty strong {
+    display: block;
+
+    color: var(--text);
+
+    font-size: 18px;
+}
+
+
+.gallery-empty p {
+    margin-top: 8px;
+
+    font-size: 11px;
+}
+
+
+/* ============================================================
+   PROMOTION MAKASI
+============================================================ */
+
+.gallery-makasi {
+    padding:
+        25px 0 100px;
+
+    background:
+        var(--soft);
+}
+
+
+.gallery-makasi-box {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 40px;
+
+    padding:
+        48px;
+
+    overflow: hidden;
+
+    color: #ffffff;
+
+    background:
+        radial-gradient(
+            circle at 90% 0,
+            rgba(120,80,255,.55),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            var(--purple-dark),
+            var(--purple)
+        );
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 30px 70px
+        rgba(54,0,200,.17);
+}
+
+
+.gallery-makasi-box span {
+    color: #cec3ff;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+
+.gallery-makasi-box h2 {
+    margin-top: 9px;
+
+    color: #ffffff;
+
+    font-size:
+        clamp(
+            27px,
+            4vw,
+            38px
+        );
+
+    letter-spacing: -1.5px;
+}
+
+
+.gallery-makasi-box p {
+    max-width: 580px;
+
+    margin-top: 10px;
+
+    color: #dcd5ff;
+
+    font-size: 11.5px;
+
+    line-height: 1.7;
+}
+
+
+.gallery-makasi-actions {
+    display: flex;
+
+    gap: 10px;
+
+    flex-shrink: 0;
+}
+
+
+.button.gallery-outline {
+    color: #ffffff;
+
+    background: transparent;
+
+    border-color:
+        rgba(255,255,255,.45);
+}
+
+
+.button.gallery-outline:hover {
+    background:
+        rgba(255,255,255,.10);
+
+    border-color: #ffffff;
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* ============================================================
+   LIEN ACTIF
+============================================================ */
+
+.nav nav
+.active-link {
+    color:
+        var(--purple);
+}
+
+
+/* ============================================================
+   GALERIE RESPONSIVE
+============================================================ */
+
+@media (
+    max-width: 900px
+) {
+
+    .gallery-hero {
+        padding:
+            140px 0 75px;
+    }
+
+
+    .psd-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .gallery-heading {
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+    }
+
+
+    .gallery-search {
+        width: 100%;
+    }
+
+
+    .gallery-makasi-box {
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+    }
+
+}
+
+
+@media (
+    max-width: 620px
+) {
+
+    .gallery-hero {
+        padding:
+            125px 0 65px;
+    }
+
+
+    .gallery-hero h1 {
+        letter-spacing:
+            -2.5px;
+    }
+
+
+    .gallery-stats {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .gallery-stats > div +
+    div {
+        border-left: 0;
+
+        border-top:
+            1px solid
+            var(--border);
+    }
+
+
+    .psd-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .gallery-makasi {
+        padding-bottom:
+            75px;
+    }
+
+
+    .gallery-makasi-box {
+        padding:
+            32px 23px;
+
+        border-radius:
+            20px;
+    }
+
+
+    .gallery-makasi-actions {
+        width: 100%;
+
+        flex-direction:
+            column;
+    }
+
+
+    .gallery-makasi-actions
+    .button {
+        width: 100%;
+    }
+
+}
+
+/* ============================================================
+   GALERIE — BOUTONS ACTION
+============================================================ */
+
+.psd-actions {
+    display: grid;
+
+    grid-template-columns:
+        1fr auto;
+
+    align-items: stretch;
+
+    gap: 9px;
+
+    margin-top: 19px;
+}
+
+
+/* Le margin est maintenant géré par .psd-actions */
+
+.psd-actions .psd-download {
+    margin-top: 0;
+}
+
+
+/* ============================================================
+   BOUTON PARTAGER
+============================================================ */
+
+.psd-share {
+    min-width: 105px;
+
+    min-height: 45px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    padding:
+        0 14px;
+
+    border:
+        1px solid #d8cff4;
+
+    border-radius:
+        11px;
+
+    background:
+        #f5f2ff;
+
+    color:
+        var(--purple);
+
+    cursor: pointer;
+
+    font-size:
+        10.5px;
+
+    font-weight:
+        700;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        border-color .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.psd-share svg {
+    width: 16px;
+    height: 16px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.8;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+}
+
+
+.psd-share:hover {
+    color: #ffffff;
+
+    background:
+        var(--purple);
+
+    border-color:
+        var(--purple);
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(54,0,200,.16);
+}
+
+
+.psd-share.copied {
+    color: #ffffff;
+
+    background: #16a34a;
+
+    border-color: #16a34a;
+}
+
+
+/* ============================================================
+   PSD OUVERT DEPUIS UN PARTAGE
+============================================================ */
+
+.psd-card.psd-highlight {
+    border-color:
+        var(--purple);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(54,0,200,.08),
+        0 28px 65px
+        rgba(54,0,200,.18);
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 620px) {
+
+    .psd-actions {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .psd-share {
+        width: 100%;
+    }
+}
+
+/* ============================================================
+   PSD ACTIONS
+============================================================ */
+
+.psd-actions {
+    display: grid;
+
+    grid-template-columns:
+        1fr auto;
+
+    gap: 9px;
+
+    margin-top: 19px;
+}
+
+
+.psd-actions
+.psd-download {
+    margin-top: 0;
+}
+
+
+
+/* ============================================================
+   BOUTON PARTAGER
+============================================================ */
+
+.psd-share {
+    min-width: 108px;
+    min-height: 45px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding:
+        0 14px;
+
+    border:
+        1px solid
+        #d8cff4;
+
+    border-radius:
+        11px;
+
+    background:
+        #f5f2ff;
+
+    color:
+        var(--purple);
+
+    cursor: pointer;
+
+    font-size:
+        10.5px;
+
+    font-weight:
+        700;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        border-color .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.psd-share svg {
+    width: 16px;
+    height: 16px;
+
+    fill: none;
+
+    stroke:
+        currentColor;
+
+    stroke-width:
+        1.8;
+
+    stroke-linecap:
+        round;
+
+    stroke-linejoin:
+        round;
+}
+
+
+.psd-share:hover {
+    color: #ffffff;
+
+    background:
+        var(--purple);
+
+    border-color:
+        var(--purple);
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(54,0,200,.16);
+}
+
+
+
+/* ============================================================
+   PSD MIS EN AVANT APRÈS PARTAGE
+============================================================ */
+
+.psd-card.psd-highlight {
+    border-color:
+        var(--purple);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(54,0,200,.08),
+        0 28px 65px
+        rgba(54,0,200,.18);
+}
+
+
+
+/* ============================================================
+   FENÊTRE PARTAGE
+============================================================ */
+
+body.share-open {
+    overflow: hidden;
+}
+
+
+.share-overlay {
+    position: fixed;
+
+    z-index: 5000;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    visibility: hidden;
+
+    opacity: 0;
+
+    background:
+        rgba(13, 8, 32, .55);
+
+    backdrop-filter:
+        blur(8px);
+
+    -webkit-backdrop-filter:
+        blur(8px);
+
+    transition:
+        opacity .2s ease,
+        visibility .2s ease;
+}
+
+
+.share-overlay.open {
+    visibility: visible;
+
+    opacity: 1;
+}
+
+
+.share-modal {
+    width:
+        min(
+            480px,
+            100%
+        );
+
+    padding:
+        25px;
+
+    background:
+        #ffffff;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        21px;
+
+    box-shadow:
+        0 35px 100px
+        rgba(0,0,0,.23);
+
+    transform:
+        translateY(15px)
+        scale(.97);
+
+    transition:
+        transform .22s ease;
+}
+
+
+.share-overlay.open
+.share-modal {
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+
+/* ============================================================
+   HEADER PARTAGE
+============================================================ */
+
+.share-modal-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content:
+        space-between;
+
+    gap: 20px;
+}
+
+
+.share-modal-header span {
+    color:
+        var(--purple);
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.3px;
+}
+
+
+.share-modal-header h3 {
+    margin-top: 4px;
+
+    color:
+        var(--text);
+
+    font-size: 20px;
+}
+
+
+.share-close {
+    width: 38px;
+    height: 38px;
+
+    display: grid;
+
+    place-items: center;
+
+    flex-shrink: 0;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        10px;
+
+    background:
+        #f8f7fb;
+
+    color:
+        var(--text);
+
+    cursor: pointer;
+
+    font-size: 24px;
+
+    line-height: 1;
+
+    transition:
+        background .2s ease,
+        color .2s ease;
+}
+
+
+.share-close:hover {
+    color: #ffffff;
+
+    background:
+        var(--purple);
+}
+
+
+
+/* ============================================================
+   APERÇU PARTAGE
+============================================================ */
+
+.share-preview {
+    display: grid;
+
+    grid-template-columns:
+        76px 1fr;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-top: 22px;
+
+    padding: 10px;
+
+    background:
+        #f8f7fc;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        13px;
+}
+
+
+.share-preview img {
+    width: 76px;
+    height: 65px;
+
+    object-fit: cover;
+
+    border-radius:
+        9px;
+}
+
+
+.share-preview strong {
+    display: block;
+
+    color:
+        var(--text);
+
+    font-size: 13px;
+}
+
+
+.share-preview span {
+    display: block;
+
+    margin-top: 5px;
+
+    color:
+        var(--purple);
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: .7px;
+}
+
+
+
+/* ============================================================
+   RÉSEAUX SOCIAUX
+============================================================ */
+
+.share-networks {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 9px;
+
+    margin-top: 18px;
+}
+
+
+.share-network {
+    min-height: 82px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        12px;
+
+    background:
+        #ffffff;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        border-color .2s ease;
+}
+
+
+.share-network:hover {
+    transform:
+        translateY(-3px);
+
+    border-color:
+        #d2c8ef;
+
+    box-shadow:
+        0 10px 25px
+        rgba(54,0,200,.08);
+}
+
+
+.share-network strong {
+    width: 34px;
+    height: 34px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    color: #ffffff;
+
+    font-size: 15px;
+}
+
+
+.share-network span {
+    color:
+        var(--text-soft);
+
+    font-size: 9px;
+
+    font-weight: 600;
+}
+
+
+.share-whatsapp strong {
+    background:
+        #25d366;
+}
+
+
+.share-facebook strong {
+    background:
+        #1877f2;
+}
+
+
+.share-telegram strong {
+    background:
+        #229ed9;
+}
+
+
+.share-x strong {
+    background:
+        #111111;
+}
+
+
+
+/* ============================================================
+   COPIER LE LIEN
+============================================================ */
+
+.share-copy {
+    display: grid;
+
+    grid-template-columns:
+        1fr auto;
+
+    gap: 8px;
+
+    margin-top: 18px;
+}
+
+
+.share-copy input {
+    width: 100%;
+
+    min-width: 0;
+
+    padding:
+        0 12px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        10px;
+
+    outline: 0;
+
+    background:
+        #f8f7fc;
+
+    color:
+        var(--muted);
+
+    font-size: 9px;
+}
+
+
+.share-copy input:focus {
+    border-color:
+        var(--purple);
+}
+
+
+.share-copy button {
+    min-height: 42px;
+
+    padding:
+        0 16px;
+
+    border: 0;
+
+    border-radius:
+        10px;
+
+    background:
+        var(--purple);
+
+    color:
+        #ffffff;
+
+    cursor: pointer;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    transition:
+        background .2s ease;
+}
+
+
+.share-copy button:hover {
+    background:
+        var(--purple-dark);
+}
+
+
+.share-notice {
+    margin-top: 12px;
+
+    color:
+        var(--muted-light);
+
+    text-align: center;
+
+    font-size: 8.5px;
+
+    line-height: 1.5;
+}
+
+
+
+/* ============================================================
+   PARTAGE MOBILE
+============================================================ */
+
+@media (
+    max-width: 620px
+) {
+
+    .psd-actions {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .psd-share {
+        width: 100%;
+    }
+
+
+    .share-modal {
+        padding: 20px;
+
+        border-radius:
+            18px;
+    }
+
+
+    .share-networks {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+/* ============================================================
+   TAILLE PSD
+============================================================ */
+
+.psd-size {
+    display: inline-flex;
+
+    margin-top: 10px;
+
+    padding:
+        5px 8px;
+
+    background:
+        #f3efff;
+
+    color:
+        var(--purple);
+
+    border-radius:
+        7px;
+
+    font-size:
+        8.5px;
+
+    font-weight:
+        700;
+}
