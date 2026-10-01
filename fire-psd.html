@@ -230,6 +230,53 @@
     html{scroll-behavior:auto;}
   }
 </style>
+
+<style id="makasi-fire-premium">
+  :root{
+    --fire-accent:#5b21ff;
+    --fire-accent-2:#8b5cf6;
+    --fire-glow:rgba(91,33,255,.18);
+  }
+  html{scroll-behavior:smooth}
+  body{overflow-x:hidden}
+  .mk-back{
+    position:fixed;left:22px;top:22px;z-index:9999;
+    display:inline-flex;align-items:center;gap:9px;
+    padding:11px 16px;border:1px solid rgba(91,33,255,.16);
+    border-radius:999px;background:rgba(255,255,255,.88);
+    color:#0b1e3d;text-decoration:none;font:700 13px/1 Inter,system-ui,sans-serif;
+    box-shadow:0 12px 35px rgba(11,30,61,.12);
+    backdrop-filter:blur(14px);
+    transition:transform .28s ease,box-shadow .28s ease,background .28s ease;
+  }
+  .mk-back:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 18px 45px rgba(91,33,255,.18);background:#fff}
+  .mk-back span{font-size:18px;line-height:1;transition:transform .28s ease}
+  .mk-back:hover span{transform:translateX(-3px)}
+  .mk-top{
+    position:fixed;right:22px;bottom:22px;z-index:9999;width:46px;height:46px;
+    border:0;border-radius:50%;background:linear-gradient(135deg,var(--fire-accent),var(--fire-accent-2));
+    color:#fff;cursor:pointer;box-shadow:0 14px 35px rgba(91,33,255,.28);
+    opacity:0;transform:translateY(14px) scale(.85);pointer-events:none;
+    transition:opacity .3s ease,transform .3s ease,box-shadow .3s ease;
+  }
+  .mk-top.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+  .mk-top:hover{box-shadow:0 20px 45px rgba(91,33,255,.4);transform:translateY(-3px) scale(1.05)}
+  a,button{transition:transform .25s ease,box-shadow .25s ease,background-color .25s ease,border-color .25s ease}
+  .mk-ripple{position:relative;overflow:hidden}
+  .mk-ripple i{position:absolute;border-radius:50%;transform:scale(0);animation:mkRipple .55s linear;background:rgba(255,255,255,.45);pointer-events:none}
+  .mk-reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+  .mk-reveal.mk-visible{opacity:1;transform:none}
+  @keyframes mkRipple{to{transform:scale(4);opacity:0}}
+  @media(max-width:700px){
+    .mk-back{left:12px;top:12px;padding:9px 12px;font-size:12px}
+    .mk-back small{display:none}
+    .mk-top{right:14px;bottom:14px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  }
+</style>
+
 </head>
 <body>
 
@@ -390,6 +437,40 @@
   };
   window.addEventListener('scroll', onScroll, { passive:true });
   onScroll();
+</script>
+
+
+<script id="makasi-fire-interactions">
+document.addEventListener("DOMContentLoaded",()=>{
+  const back=document.createElement("a");
+  back.className="mk-back";
+  back.href="index.html";
+  back.innerHTML='<span>←</span><small>Retour à MAKASI</small><b>MAKASI</b>';
+  document.body.appendChild(back);
+  const top=document.createElement("button");
+  top.className="mk-top"; top.type="button"; top.setAttribute("aria-label","Retour en haut"); top.textContent="↑";
+  document.body.appendChild(top);
+  const onScroll=()=>top.classList.toggle("show",window.scrollY>500);
+  window.addEventListener("scroll",onScroll,{passive:true}); onScroll();
+  top.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
+  document.querySelectorAll("a,button").forEach(el=>{
+    if(el!==back&&el!==top) el.classList.add("mk-ripple");
+    el.addEventListener("click",e=>{
+      if(el===back||el===top||window.matchMedia("(prefers-reduced-motion:reduce)").matches)return;
+      const r=el.getBoundingClientRect(), s=Math.max(r.width,r.height);
+      const i=document.createElement("i"); i.style.width=i.style.height=s+"px";
+      i.style.left=(e.clientX-r.left-s/2)+"px"; i.style.top=(e.clientY-r.top-s/2)+"px";
+      el.appendChild(i); setTimeout(()=>i.remove(),600);
+    });
+  });
+  document.querySelectorAll("section,article,.card,.template-card,.product-card").forEach((el,i)=>{
+    el.classList.add("mk-reveal"); el.style.transitionDelay=Math.min(i,8)*45+"ms";
+  });
+  if("IntersectionObserver" in window){
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("mk-visible");io.unobserve(e.target)}}),{threshold:.08});
+    document.querySelectorAll(".mk-reveal").forEach(e=>io.observe(e));
+  }else document.querySelectorAll(".mk-reveal").forEach(e=>e.classList.add("mk-visible"));
+});
 </script>
 
 </body>
