@@ -386,3 +386,28 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
 });
+
+/* MAKASI 2.0 motion polish */
+(() => {
+  const cards = document.querySelectorAll(".feature, .step, .price-card, .download-box");
+  cards.forEach((card, i) => {
+    card.style.transitionDelay = (Math.min(i, 7) * 55) + "ms";
+  });
+
+  const finePointer = window.matchMedia("(pointer:fine)").matches;
+  if (!finePointer || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  document.querySelectorAll(".feature, .step, .price-card, .showcase, .software-window").forEach(el => {
+    el.addEventListener("pointermove", e => {
+      const r = el.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - .5;
+      const y = (e.clientY - r.top) / r.height - .5;
+      el.style.setProperty("--mx", (x * 4).toFixed(2) + "deg");
+      el.style.setProperty("--my", (y * -4).toFixed(2) + "deg");
+    });
+    el.addEventListener("pointerleave", () => {
+      el.style.removeProperty("--mx");
+      el.style.removeProperty("--my");
+    });
+  });
+})();
