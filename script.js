@@ -1,4 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // FIRE-PSD uses a full-screen visual layout, but the page itself must remain vertically scrollable.
+  if (document.body.classList.contains("fire-page")) {
+    document.documentElement.style.overflowY = "auto";
+    document.documentElement.style.overflowX = "hidden";
+    document.body.style.overflowY = "auto";
+    document.body.style.overflowX = "hidden";
+    document.body.style.minHeight = "100vh";
+  }
+
   const navbar = document.querySelector(".navbar");
   const updateNavbar = () => navbar?.classList.toggle("scrolled", window.scrollY > 25);
   updateNavbar();
