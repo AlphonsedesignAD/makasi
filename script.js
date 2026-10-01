@@ -1,413 +1,134 @@
-// ============================================================
-// MAKASI WEBSITE
-// ============================================================
-
 document.addEventListener("DOMContentLoaded", () => {
+  const navbar = document.querySelector(".navbar");
+  const updateNavbar = () => navbar?.classList.toggle("scrolled", window.scrollY > 25);
+  updateNavbar();
+  window.addEventListener("scroll", updateNavbar, { passive: true });
 
-    // ========================================================
-    // NAVBAR AU SCROLL
-    // ========================================================
-
-    const navbar =
-        document.querySelector(".navbar");
-
-    function updateNavbar() {
-
-        if (!navbar) {
-            return;
+  // Reveal-on-scroll
+  const reveal = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
         }
-
-        if (window.scrollY > 25) {
-
-            navbar.classList.add(
-                "scrolled"
-            );
-
-        } else {
-
-            navbar.classList.remove(
-                "scrolled"
-            );
-
-        }
-
-    }
-
-    updateNavbar();
-
-    window.addEventListener(
-        "scroll",
-        updateNavbar,
-        {
-            passive: true
-        }
-    );
-
-
-    // ========================================================
-    // ANIMATIONS AU SCROLL
-    // ========================================================
-
-    const revealElements =
-        document.querySelectorAll(
-            ".reveal"
-        );
-
-    if ("IntersectionObserver" in window) {
-
-        const observer =
-            new IntersectionObserver(
-
-                entries => {
-
-                    entries.forEach(
-                        entry => {
-
-                            if (
-                                entry.isIntersecting
-                            ) {
-
-                                entry.target.classList.add(
-                                    "visible"
-                                );
-
-                                observer.unobserve(
-                                    entry.target
-                                );
-
-                            }
-
-                        }
-                    );
-
-                },
-
-                {
-                    threshold: 0.10,
-                    rootMargin:
-                        "0px 0px -30px 0px"
-                }
-
-            );
-
-        revealElements.forEach(
-            element => {
-
-                observer.observe(
-                    element
-                );
-
-            }
-        );
-
-    } else {
-
-        revealElements.forEach(
-            element => {
-
-                element.classList.add(
-                    "visible"
-                );
-
-            }
-        );
-
-    }
-
-
-    // ========================================================
-    // FAQ
-    // ========================================================
-
-    const faqButtons =
-        document.querySelectorAll(
-            ".faq-question"
-        );
-
-    faqButtons.forEach(
-        button => {
-
-            button.addEventListener(
-                "click",
-                () => {
-
-                    const currentItem =
-                        button.closest(
-                            ".faq-item"
-                        );
-
-                    if (!currentItem) {
-                        return;
-                    }
-
-                    const wasOpen =
-                        currentItem.classList.contains(
-                            "open"
-                        );
-
-                    document
-                        .querySelectorAll(
-                            ".faq-item"
-                        )
-                        .forEach(
-                            item => {
-
-                                item.classList.remove(
-                                    "open"
-                                );
-
-                            }
-                        );
-
-                    if (!wasOpen) {
-
-                        currentItem.classList.add(
-                            "open"
-                        );
-
-                    }
-
-                }
-            );
-
-        }
-    );
-
-
-    // ========================================================
-    // MENU MOBILE
-    // ========================================================
-
-    const mobileButton =
-        document.getElementById(
-            "mobileMenu"
-        );
-
-    const navigation =
-        document.getElementById(
-            "navLinks"
-        );
-
-    if (
-        mobileButton
-        && navigation
-    ) {
-
-        // ----------------------------------------------------
-        // OUVRIR / FERMER
-        // ----------------------------------------------------
-
-        mobileButton.addEventListener(
-            "click",
-            event => {
-
-                event.stopPropagation();
-
-                const opened =
-                    navigation.classList.toggle(
-                        "open"
-                    );
-
-                mobileButton.classList.toggle(
-                    "active",
-                    opened
-                );
-
-                mobileButton.setAttribute(
-                    "aria-expanded",
-                    opened
-                        ? "true"
-                        : "false"
-                );
-
-            }
-        );
-
-
-        // ----------------------------------------------------
-        // FERMER APRÈS CLIC SUR UN LIEN
-        // ----------------------------------------------------
-
-        navigation
-            .querySelectorAll("a")
-            .forEach(
-                link => {
-
-                    link.addEventListener(
-                        "click",
-                        () => {
-
-                            closeMobileMenu();
-
-                        }
-                    );
-
-                }
-            );
-
-
-        // ----------------------------------------------------
-        // CLIC EN DEHORS
-        // ----------------------------------------------------
-
-        document.addEventListener(
-            "click",
-            event => {
-
-                if (
-                    navigation.classList.contains(
-                        "open"
-                    )
-                    &&
-                    !navigation.contains(
-                        event.target
-                    )
-                    &&
-                    !mobileButton.contains(
-                        event.target
-                    )
-                ) {
-
-                    closeMobileMenu();
-
-                }
-
-            }
-        );
-
-
-        // ----------------------------------------------------
-        // ESC
-        // ----------------------------------------------------
-
-        document.addEventListener(
-            "keydown",
-            event => {
-
-                if (
-                    event.key === "Escape"
-                ) {
-
-                    closeMobileMenu();
-
-                }
-
-            }
-        );
-
-
-        // ----------------------------------------------------
-        // RETOUR AU DESKTOP
-        // ----------------------------------------------------
-
-        window.addEventListener(
-            "resize",
-            () => {
-
-                if (
-                    window.innerWidth > 900
-                ) {
-
-                    closeMobileMenu();
-
-                }
-
-            }
-        );
-
-
-        function closeMobileMenu() {
-
-            navigation.classList.remove(
-                "open"
-            );
-
-            mobileButton.classList.remove(
-                "active"
-            );
-
-            mobileButton.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-        }
-
-    }
-
-
-    // ========================================================
-    // LIENS INTERNES
-    // ========================================================
-
-    document
-        .querySelectorAll(
-            'a[href^="#"]'
-        )
-        .forEach(
-            anchor => {
-
-                anchor.addEventListener(
-                    "click",
-                    event => {
-
-                        const href =
-                            anchor.getAttribute(
-                                "href"
-                            );
-
-                        if (
-                            !href
-                            || href === "#"
-                        ) {
-                            return;
-                        }
-
-                        const target =
-                            document.querySelector(
-                                href
-                            );
-
-                        if (!target) {
-                            return;
-                        }
-
-                        event.preventDefault();
-
-                        target.scrollIntoView({
-                            behavior: "smooth",
-                            block: "start"
-                        });
-
-                    }
-                );
-
-            }
-        );
-
+      });
+    }, { threshold: 0.08, rootMargin: "0px 0px -30px 0px" });
+    reveal.forEach((el, i) => {
+      el.style.transitionDelay = `${Math.min(i, 8) * 45}ms`;
+      observer.observe(el);
+    });
+  } else reveal.forEach((el) => el.classList.add("visible"));
+
+  // FAQ accordion
+  document.querySelectorAll(".faq-question").forEach((button) => {
+    button.addEventListener("click", () => {
+      const item = button.closest(".faq-item");
+      if (!item) return;
+      const open = item.classList.contains("open");
+      document.querySelectorAll(".faq-item").forEach((x) => x.classList.remove("open"));
+      if (!open) item.classList.add("open");
+    });
+  });
+
+  // Desktop/mobile navigation
+  const mobileButton = document.getElementById("mobileMenu");
+  const navigation = document.getElementById("navLinks");
+  const closeMobileMenu = () => {
+    navigation?.classList.remove("open");
+    mobileButton?.classList.remove("active");
+    mobileButton?.setAttribute("aria-expanded", "false");
+  };
+  if (mobileButton && navigation) {
+    mobileButton.addEventListener("click", (event) => {
+      event.stopPropagation();
+      const open = navigation.classList.toggle("open");
+      mobileButton.classList.toggle("active", open);
+      mobileButton.setAttribute("aria-expanded", String(open));
+    });
+    navigation.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMobileMenu));
+    document.addEventListener("click", (event) => {
+      if (navigation.classList.contains("open") && !navigation.contains(event.target) && !mobileButton.contains(event.target)) closeMobileMenu();
+    });
+    document.addEventListener("keydown", (event) => event.key === "Escape" && closeMobileMenu());
+    window.addEventListener("resize", () => window.innerWidth > 900 && closeMobileMenu());
+  }
+
+  // Smooth same-page anchors
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", (event) => {
+      const href = anchor.getAttribute("href");
+      if (!href || href === "#") return;
+      const target = document.querySelector(href);
+      if (!target) return;
+      event.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      history.replaceState(null, "", href);
+    });
+  });
+
+  // Premium pointer tilt on desktop
+  if (window.matchMedia("(pointer:fine)").matches && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    document.querySelectorAll(".feature, .step, .price-card, .showcase, .software-window, .psd-card, .fire-card").forEach((el) => {
+      el.addEventListener("pointermove", (event) => {
+        const r = el.getBoundingClientRect();
+        const x = (event.clientX - r.left) / r.width - 0.5;
+        const y = (event.clientY - r.top) / r.height - 0.5;
+        el.style.setProperty("--tilt-x", `${(-y * 3).toFixed(2)}deg`);
+        el.style.setProperty("--tilt-y", `${(x * 3).toFixed(2)}deg`);
+      });
+      el.addEventListener("pointerleave", () => {
+        el.style.removeProperty("--tilt-x");
+        el.style.removeProperty("--tilt-y");
+      });
+    });
+  }
+
+  // Inject the common bottom navigation on every page.
+  if (!document.querySelector(".makasi-bottom-nav")) {
+    const path = location.pathname.toLowerCase();
+    const home = path.endsWith("/") || path.endsWith("index.html");
+    const gallery = path.includes("galerie");
+    const fire = path.includes("fire-psd");
+    const nav = document.createElement("nav");
+    nav.className = "makasi-bottom-nav";
+    nav.setAttribute("aria-label", "Navigation principale");
+    nav.innerHTML = `
+      <a href="index.html#home" class="${home ? "active" : ""}" aria-label="Accueil">
+        <svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>Accueil</span>
+      </a>
+      <a href="galerie.html" class="${gallery ? "active" : ""}" aria-label="Galerie PSD">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 15 3-3 3 3 2-2 3 3"/></svg><span>Galerie</span>
+      </a>
+      <a href="fire-psd.html" class="${fire ? "active" : ""}" aria-label="FIRE-PSD">
+        <svg viewBox="0 0 24 24"><path d="M12 3c3 3 5 5.5 5 9a5 5 0 0 1-10 0c0-2 1-4 3-6-.1 2 1 3 2 4 1-2 1-4 0-7Z"/></svg><span>FIRE-PSD</span>
+      </a>
+      <a href="index.html#pricing" aria-label="Prix">
+        <svg viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></svg><span>Prix</span>
+      </a>
+      <a href="index.html#download" aria-label="Télécharger">
+        <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 20h14"/></svg><span>Télécharger</span>
+      </a>`;
+    document.body.appendChild(nav);
+  }
+
+  // Lightweight SEO structured data.
+  const structured = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "MAKASI",
+    "applicationCategory": "DesignApplication",
+    "operatingSystem": "Windows",
+    "description": "MAKASI organise les fichiers PSD dans une bibliothèque visuelle moderne pour designers.",
+    "offers": { "@type": "Offer", "price": "8", "priceCurrency": "USD" },
+    "brand": { "@type": "Brand", "name": "ALPHONSE DESIGN" }
+  };
+  if (!document.getElementById("makasi-schema")) {
+    const schema = document.createElement("script");
+    schema.id = "makasi-schema";
+    schema.type = "application/ld+json";
+    schema.textContent = JSON.stringify(structured);
+    document.head.appendChild(schema);
+  }
 });
-
-/* MAKASI 2.0 motion polish */
-(() => {
-  const cards = document.querySelectorAll(".feature, .step, .price-card, .download-box");
-  cards.forEach((card, i) => {
-    card.style.transitionDelay = (Math.min(i, 7) * 55) + "ms";
-  });
-
-  const finePointer = window.matchMedia("(pointer:fine)").matches;
-  if (!finePointer || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-  document.querySelectorAll(".feature, .step, .price-card, .showcase, .software-window").forEach(el => {
-    el.addEventListener("pointermove", e => {
-      const r = el.getBoundingClientRect();
-      const x = (e.clientX - r.left) / r.width - .5;
-      const y = (e.clientY - r.top) / r.height - .5;
-      el.style.setProperty("--mx", (x * 4).toFixed(2) + "deg");
-      el.style.setProperty("--my", (y * -4).toFixed(2) + "deg");
-    });
-    el.addEventListener("pointerleave", () => {
-      el.style.removeProperty("--mx");
-      el.style.removeProperty("--my");
-    });
-  });
-})();
